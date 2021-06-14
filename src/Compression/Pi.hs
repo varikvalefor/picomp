@@ -32,6 +32,7 @@ digitsOfPi :: Integer -> [Integer];
 digitsOfPi n = init $ digits $ read pee
   where pee = filter (/='.') $ showCReal (fromEnum n) pi;
 
+-- | @digits k@ equals the list of the digits of k.
 digits :: Integer -> [Integer];
 digits = map (read . (:[])) . show;
 
