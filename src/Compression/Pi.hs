@@ -35,6 +35,10 @@ digitsOfPi n = init $ digits $ read pee
 digits :: Integer -> [Integer];
 digits = map (read . (:[])) . show;
 
+-- | @stringToInteger k@ equals an 'Integer' value which uniquely
+-- represents k.
+--
+-- stringToInteger is the inverse function of 'integerToString'.
 stringToInteger :: String -> Integer;
 stringToInteger = recurse 0
   where
@@ -48,6 +52,10 @@ stringToInteger = recurse 0
     firstBit :: String -> Integer
     firstBit = toEnum . fromEnum . (!!0);
 
+-- | @integerToString k@ equals an Integer value which uniquely
+-- identifies k.
+--
+-- integerToString is the inverse function of 'stringToInteger'.
 integerToString:: Integer -> String
 integerToString = recurse []
   where
