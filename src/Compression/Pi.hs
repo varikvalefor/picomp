@@ -4,6 +4,8 @@ import Data.List (isSubsequenceOf);
 import Data.Maybe (fromJust, isNothing);
 import Data.Number.CReal (showCReal);
 
+type Digit = Int;
+
 -- | @compress k@ equals the 2-tuple (a,b) such that
 -- @take b (drop a $ digitsOfPi $ b + a) == k@.
 compress :: Integer -> (Integer, Integer);
@@ -30,12 +32,13 @@ subPosition a b = recurse a b 0
     | b == [] = Nothing
     | otherwise = recurse a (tail b) (c + 1);
 
-digitsOfPi :: Integer -> [Integer];
+-- | @digitsOfPi k@ equals the list of the first k digits of pi.
+digitsOfPi :: Integer -> [Digit];
 digitsOfPi n = init $ digits $ read pee
   where pee = filter (/='.') $ showCReal (fromEnum n) pi;
 
 -- | @digits k@ equals the list of the digits of k.
-digits :: Integer -> [Integer];
+digits :: Integer -> [Digit];
 digits = map (read . (:[])) . show;
 
 -- | @stringToInteger k@ equals an 'Integer' value which uniquely
