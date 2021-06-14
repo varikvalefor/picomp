@@ -28,8 +28,8 @@ subPosition a b = recurse a b 0
   where
   recurse :: Eq a => [a] -> [a] -> Integer -> Maybe Integer
   recurse a b c
+    | not $ a `isSubsequenceOf` b = Nothing
     | take (length a) b == a = Just c
-    | b == [] = Nothing
     | otherwise = recurse a (tail b) (c + 1);
 
 -- | @digitsOfPi k@ equals the list of the first k digits of pi.
