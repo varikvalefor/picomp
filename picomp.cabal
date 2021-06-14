@@ -1,0 +1,31 @@
+Cabal-version: 2.4
+
+Name:          picomp
+Version:       0.1.0.0
+Synopsis:      Compress stuff via pi's randomness
+Description:   picomp implements pi compression i.e., uses pi's apparent
+               containment of all integer sequences as a method of
+               compressing data.
+
+License:       BSD-3-Clause
+
+Author:        Varik Valefor
+Maintainer:    varikvalefor@aol.com
+Copyright:     (c) Varik Valefor 2021.
+
+Category:      Compression
+
+Stability:     unstable
+
+Source-repository head
+  type:     git
+  location: https://github.com/varikvalefor/picomp
+
+executable picomp
+  main-is:          main.hs
+
+  ghc-options:      -haddock -threaded -O2
+  other-modules:    Compression.Pi
+
+  build-depends:    base >=4, numbers
+  hs-source-dirs:   src
