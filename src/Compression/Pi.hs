@@ -4,6 +4,8 @@ import Data.List (isSubsequenceOf);
 import Data.Maybe (fromJust, isNothing);
 import Data.Number.CReal (showCReal);
 
+-- | @compress k@ equals the 2-tuple (a,b) such that
+-- @take b (drop a $ digitsOfPi $ b + a) == k@.
 compress :: Integer -> (Integer, Integer);
 compress = recurse 1000
   where
