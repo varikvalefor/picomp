@@ -9,7 +9,7 @@ type Digit = Int;
 -- | @compress k@ equals the 2-tuple (a,b) such that
 -- @take b (drop a $ digitsOfPi $ b + a) == k@.
 compress :: Integer -> (Integer, Integer);
-compress = recurse 1000
+compress = recurse 1
   where
   recurse :: Integer -> Integer -> (Integer, Integer)
   recurse n desired
