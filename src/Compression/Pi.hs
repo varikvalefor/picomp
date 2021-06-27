@@ -54,7 +54,7 @@ stringToInteger = recurse 0
     | otherwise = recurse newA (tail c)
     where
     newA :: Integer
-    newA = a * 256 + (firstBit c)
+    newA = a * 128 + (firstBit c)
     firstBit :: String -> Integer
     firstBit = toEnum . fromEnum . (!!0);
 
@@ -73,6 +73,6 @@ integerToString = recurse []
     newA :: String
     newA = (toEnum $ fromInteger remainder) : a
     newC :: Integer
-    newC = div (c - remainder) 256
+    newC = div (c - remainder) 128
     remainder :: Integer
-    remainder = c `rem` 256;
+    remainder = c `rem` 128;
