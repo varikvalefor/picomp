@@ -19,6 +19,15 @@ compress = recurse 1
     position :: Maybe Integer
     position = subPosition (digits desired) (digitsOfPi n)
 
+-- | @decompress (a,b)@ equals the Integer @g@ such that the digits of
+-- @g@ begin at the @a@th digit of pi.
+decompress :: (Integer, Integer) -> Integer;
+decompress (len, pos) =
+  listToInteger $ drop (fromEnum $ pos) $ digitsOfPi $ len + pos
+  where
+  listToInteger :: [Digit] -> Integer
+  listToInteger = read . foldr (++) [] . map show;
+
 -- | @subPosition a b@ equals the value k such that
 -- @take (length a) $ drop (fromJust k) b@ equals a if a is a
 -- subsequence of b.
