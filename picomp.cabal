@@ -4,8 +4,8 @@ Name:          picomp
 Version:       0.1.0.0
 Synopsis:      Compress stuff via pi's randomness
 Description:   picomp implements pi compression i.e., uses pi's apparent
-               containment of all integer sequences as a method of
-               compressing data.
+               but completely unproven containment of all integer
+               sequences as a method of compressing data.
 
 License:       BSD-3-Clause
 
