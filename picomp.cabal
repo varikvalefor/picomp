@@ -6,6 +6,11 @@ Synopsis:      Compress stuff via pi's randomness
 Description:   picomp implements pi compression i.e., uses pi's apparent
                but completely unproven containment of all integer
                sequences as a method of compressing data.
+               .
+               picomp's compression is hideously slow; however, because
+               picomp is created as a novelty, as opposed to being a
+               proper tool, VARIK does not find that picomp's slowness
+               is actually a problem.
 
 License:       BSD-3-Clause
 
