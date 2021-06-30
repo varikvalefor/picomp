@@ -40,7 +40,7 @@ subPosition a b = recurse a b 0
     | take (length a) b == a = Just c
     | otherwise = recurse a (tail b) (c + 1);
 
--- | @digitsOfPi k@ equals the list of the first k digits of pi.
+-- | @digitsOfPi k@ equals the list of the first @k@ digits of pi.
 digitsOfPi :: Integer -> [Digit];
 digitsOfPi n = init $ digits $ read pee
   where pee = filter (/='.') $ showCReal (fromEnum n) pi;
