@@ -30,8 +30,7 @@ decompress (len, pos) =
 
 -- | @subPosition a b@ equals the value $k$ such that
 -- @take (length a) $ drop (fromJust k) b@ equals $a$ if $a$ is a
--- subsequence of $b$.
--- @subPosition a b@ otherwise equals Nothing.
+-- subsequence of $b$, otherwise equalling Nothing.
 subPosition :: Eq a => [a] -> [a] -> Maybe Integer
 subPosition a b = recurse a b 0
   where
