@@ -52,7 +52,7 @@ digits = map (read . (:[])) . show;
 -- | @stringToInteger k@ equals an 'Integer' value which uniquely
 -- represents @k@.
 --
--- stringToInteger is the inverse function of 'integerToString'.
+-- @stringToInteger@ is the inverse function of @'integerToString'@.
 stringToInteger :: String -> Integer;
 stringToInteger = recurse 0
   where
