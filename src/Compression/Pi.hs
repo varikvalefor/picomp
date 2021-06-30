@@ -67,9 +67,9 @@ stringToInteger = recurse 0
     firstBit = toEnum . fromEnum . (!!0);
 
 -- | @integerToString k@ equals an Integer value which uniquely
--- identifies k.
+-- identifies @k@.
 --
--- integerToString is the inverse function of 'stringToInteger'.
+-- @integerToString@ is the inverse function of @'stringToInteger'@.
 integerToString:: Integer -> String
 integerToString = recurse []
   where
