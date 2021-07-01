@@ -76,11 +76,11 @@ integerToString = recurse []
   recurse :: String -> Integer -> String
   recurse a c
     | c <= 0 =  a
-    | otherwise = recurse newA newC
+    | otherwise = recurse a' c'
     where
-    newA :: String
-    newA = (toEnum $ fromInteger remainder) : a
-    newC :: Integer
-    newC = (c - remainder) `div` 128
+    a' :: String
+    a' = (toEnum $ fromInteger remainder) : a
+    c' :: Integer
+    c' = (c - remainder) `div` 128
     remainder :: Integer
     remainder = c `rem` 128;
