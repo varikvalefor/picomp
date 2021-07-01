@@ -81,6 +81,6 @@ integerToString = recurse []
     newA :: String
     newA = (toEnum $ fromInteger remainder) : a
     newC :: Integer
-    newC = div (c - remainder) 128
+    newC = (c - remainder) `div` 128
     remainder :: Integer
     remainder = c `rem` 128;
