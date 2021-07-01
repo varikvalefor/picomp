@@ -23,7 +23,7 @@ compress = recurse 1
 -- @g@ begin at the @a@th digit of pi.
 decompress :: (Integer, Integer) -> Integer;
 decompress (len, pos) =
-  listToInteger $ drop (fromEnum $ pos) $ digitsOfPi $ len + pos
+  listToInteger $ drop (fromEnum pos) $ digitsOfPi $ len + pos
   where
   listToInteger :: [Digit] -> Integer
   listToInteger = read . foldr (++) [] . map show;
