@@ -59,10 +59,10 @@ stringToInteger = recurse 0
   recurse :: Integer -> String -> Integer
   recurse a c
     | c == [] = a
-    | otherwise = recurse newA (tail c)
+    | otherwise = recurse a' (tail c)
     where
-    newA :: Integer
-    newA = a * 128 + (firstBit c)
+    a' :: Integer
+    a' = a * 128 + firstBit c
     firstBit :: String -> Integer
     firstBit = toEnum . fromEnum . (!!0);
 
