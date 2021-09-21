@@ -32,5 +32,7 @@ executable picomp
   ghc-options:      -haddock -threaded -O2
   other-modules:    Compression.Pi
 
-  build-depends:    base >=4, numbers
+  build-depends:
+    base >=4,
+    numbers
   hs-source-dirs:   src
