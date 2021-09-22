@@ -10,7 +10,7 @@ Description:   picomp implements pi compression i.e., uses pi's apparent
                picomp's compression is hideously slow; however, because
                picomp is created as a novelty, as opposed to being a
                proper tool, VARIK does not find that picomp's slowness
-               is actually a problem.
+               is too terribly awful.
 
 License:       BSD-3-Clause
 
