@@ -4,6 +4,7 @@ import Data.List (isSubsequenceOf);
 import Data.Maybe (fromJust, isNothing);
 import Data.Number.CReal (showCReal);
 
+-- | For all 'Digit' @k@, @k@ represents a decimal digit.
 type Digit = Int;
 
 -- | @compress k@ equals the 2-tuple (a,b) such that
