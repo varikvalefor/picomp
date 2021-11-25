@@ -1,0 +1,54 @@
+.Dd $Mdocdate$
+.Dt picomp 1
+.Os OpenBSD 7.0
+.Sh NAME
+.Nm matelcli
+.Nd digits-of-pi-based compression "utility"
+.Sh SYNOPSIS
+.Nm picomp compress
+.Ar string
+.Pp
+.Nm picomp decompress
+.Ar number
+.Sh DESCRIPTION
+.Nm picomp
+is a tool which uses the digits of
+.Va pi
+to
+.Em hopefully
+compress arbitrary strings.  However, the set of compressible inputs
+and the set of decompressible outputs are isomorphic;
+.Nm picomp
+offers the
+.Nm decompress
+option.
+.Pp
+.Nm picomp compress
+.Ar string
+outputs an 2-tuple which represents the place of
+.Ar string
+in the place of the digits of
+.Va pi
+if the digits of
+.Va pi
+contain an integer representation of
+.Ar string .
+.Pp
+.Nm picomp decompress
+.Ar position
+writes to the standard output the string
+.Va k
+such that the position of
+.Va k
+in the digits of
+.Va pi
+is
+.Ar position .
+.Sh AUTHOR
+.Nm picomp
+is maintained by
+.An Varik
+.An Dq NOT A COMPUTER PROGRAMMER!!!
+.An Valefor
+.Aq Mt varikvalefor@aol.com .
+Hate mail should be forwarded accordingly.
