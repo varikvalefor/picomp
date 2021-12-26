@@ -27,7 +27,7 @@ decompress (len, pos) =
   listToInteger $ drop (fromEnum pos) $ digitsOfPi $ len + pos
   where
   listToInteger :: [Digit] -> Integer
-  listToInteger = read . foldr (++) [] . map show;
+  listToInteger = read . concat . map show;
 
 -- | @subPosition a b@ equals the value $k$ such that
 -- @take (length a) $ drop (fromJust k) b@ equals $a$ if $a$ is a
