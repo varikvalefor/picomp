@@ -23,11 +23,13 @@ compress = recurse 1
 -- | @decompress (a,b)@ equals the Integer @g@ such that the digits of
 -- @g@ begin at the @a@th digit of pi.
 decompress :: (Integer, Integer) -> Integer;
-decompress (len, pos) =
-  listToInteger $ drop (fromEnum pos) $ digitsOfPi $ len + pos
+decompress (len, pos) = listToInt $ drop pos' $ digitsOfPi $ len + pos
   where
-  listToInteger :: [Digit] -> Integer
-  listToInteger = read . concat . map show;
+  pos' :: Integral a => a
+  pos' = fromEnum pos
+  --
+  listToInt :: [Digit] -> Integer
+  listToInt = read . concat . map show;
 
 -- | @subPosition a b@ equals the value $k$ such that
 -- @take (length a) $ drop (fromJust k) b@ equals $a$ if $a$ is a
