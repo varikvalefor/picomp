@@ -35,6 +35,7 @@ contain an integer representation of
 .Ar string .
 .Pp
 .Nm picomp decompress
+.Ar length
 .Ar position
 writes to the standard output the string
 .Va k
@@ -43,7 +44,11 @@ such that the position of
 in the digits of
 .Va pi
 is
-.Ar position .
+.Ar position
+and the length of the decimal representation of
+.Va k
+is
+.Ar length .
 .Sh AUTHOR
 .Nm picomp
 is maintained by
