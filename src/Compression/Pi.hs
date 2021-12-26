@@ -80,7 +80,7 @@ integerToString = recurse []
     | otherwise = recurse a' c'
     where
     a' :: String
-    a' = (toEnum $ fromInteger remainder) : a
+    a' = toEnum (fromInteger remainder) : a
     c' :: Integer
     c' = (c - remainder) `div` 128
     remainder :: Integer
