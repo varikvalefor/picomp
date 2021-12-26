@@ -13,19 +13,19 @@ compress :: Integer -> (Integer, Integer);
 compress = recurse 1
   where
   recurse :: Integer -> Integer -> (Integer, Integer)
-  recurse n desired
-    | isNothing position = recurse (n * 10) desired
-    |otherwise = (fromJust position, toEnum $ length $ digits desired)
+  recurse n query
+    | isNothing position = recurse (n * 10) query
+    |otherwise = (fromJust position, toEnum $ length $ digits query)
     where
     position :: Maybe Integer
-    position = subPosition (digits desired) (digitsOfPi n)
+    position = subPosition (digits query) (digitsOfPi n)
 
 -- | @decompress (a,b)@ equals the Integer @g@ such that the digits of
 -- @g@ begin at the @a@th digit of pi.
 decompress :: (Integer, Integer) -> Integer;
 decompress (len, pos) = listToInt $ drop pos' $ digitsOfPi $ len + pos
   where
-  pos' :: Integral a => a
+  pos' :: Int
   pos' = fromEnum pos
   --
   listToInt :: [Digit] -> Integer
