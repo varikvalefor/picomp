@@ -13,21 +13,23 @@ compress :: Integer -> (Integer, Integer);
 compress = recurse 1
   where
   recurse :: Integer -> Integer -> (Integer, Integer)
-  recurse n desired
-    | isNothing position = recurse (n * 10) desired
-    |otherwise = (fromJust position, toEnum $ length $ digits desired)
+  recurse n query
+    | isNothing position = recurse (n * 10) query
+    |otherwise = (fromJust position, toEnum $ length $ digits query)
     where
     position :: Maybe Integer
-    position = subPosition (digits desired) (digitsOfPi n)
+    position = subPosition (digits query) $ digitsOfPi n
 
 -- | @decompress (a,b)@ equals the Integer @g@ such that the digits of
 -- @g@ begin at the @a@th digit of pi.
 decompress :: (Integer, Integer) -> Integer;
-decompress (len, pos) =
-  listToInteger $ drop (fromEnum pos) $ digitsOfPi $ len + pos
+decompress (len, pos) = listToInt $ drop pos' $ digitsOfPi $ len + pos
   where
-  listToInteger :: [Digit] -> Integer
-  listToInteger = read . foldr (++) [] . map show;
+  pos' :: Int
+  pos' = fromEnum pos
+  --
+  listToInt :: [Digit] -> Integer
+  listToInt = read . concat . map show;
 
 -- | @subPosition a b@ equals the value $k$ such that
 -- @take (length a) $ drop (fromJust k) b@ equals $a$ if $a$ is a
@@ -60,10 +62,8 @@ stringToInteger = recurse 0
   recurse :: Integer -> String -> Integer
   recurse a c
     | c == [] = a
-    | otherwise = recurse a' (tail c)
+    | otherwise = recurse (a * 128 + firstBit c) (tail c)
     where
-    a' :: Integer
-    a' = a * 128 + firstBit c
     firstBit :: String -> Integer
     firstBit = toEnum . fromEnum . (!!0);
 
@@ -80,7 +80,7 @@ integerToString = recurse []
     | otherwise = recurse a' c'
     where
     a' :: String
-    a' = (toEnum $ fromInteger remainder) : a
+    a' = toEnum (fromInteger remainder) : a
     c' :: Integer
     c' = (c - remainder) `div` 128
     remainder :: Integer
