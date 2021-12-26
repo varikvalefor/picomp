@@ -18,7 +18,7 @@ compress = recurse 1
     |otherwise = (fromJust position, toEnum $ length $ digits query)
     where
     position :: Maybe Integer
-    position = subPosition (digits query) (digitsOfPi n)
+    position = subPosition (digits query) $ digitsOfPi n
 
 -- | @decompress (a,b)@ equals the Integer @g@ such that the digits of
 -- @g@ begin at the @a@th digit of pi.
