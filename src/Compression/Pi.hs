@@ -7,7 +7,7 @@ import Data.Number.CReal (showCReal);
 -- | For all 'Digit' @k@, @k@ represents a decimal digit.
 type Digit = Int;
 
--- | @compress k@ equals the 2-tuple (a,b) such that
+-- | @compress k@ equals the 2-tuple @(a,b)@ such that
 -- @take b (drop a $ digitsOfPi $ b + a) == k@.
 compress :: Integer -> (Integer, Integer);
 compress = recurse 1
